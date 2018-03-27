@@ -110,6 +110,8 @@ const withOptimizedImages = (nextConfig) => {
     imagesFolder = 'images',
     imagesName = '[name]-[hash].[ext]',
     optimizeImagesInDev = false,
+    publicPath,
+    outputPath,
     mozjpeg,
     optipng,
     pngquant = false,
@@ -133,8 +135,8 @@ const withOptimizedImages = (nextConfig) => {
       const urlLoaderOptions = {
         limit: inlineImageLimit,
         fallback: 'file-loader',
-        publicPath: `/_next/static/${imagesFolder}/`,
-        outputPath: `static/${imagesFolder}/`,
+        publicPath: publicPath || `/_next/static/${imagesFolder}/`,
+        outputPath: outputPath || `static/${imagesFolder}/`,
         name: imagesName,
       };
 
